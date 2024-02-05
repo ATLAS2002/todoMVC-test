@@ -1,8 +1,15 @@
-# React + Vite
+# TodoMVC App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Testing framework: Cypress
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ### e2e tests:
+  - ##### Core: _Check if each functionality of a TODO list app is working._
+    |   Test Case   | Implementation Details                                                                                                                                                                                                                      |
+    | :-----------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    |   Add items   | 🔹Type some tasks in `text-input`.<br /> 🔸 Each item should appear inside `todo-list`.                                                                                                                                                     |
+    |  Check items  | 🔹Check the `todo-item-toggle` button for couple of items. <br /> 🔸Each of those checked items should have the `completed` class.                                                                                                          |
+    | Uncheck items | 🔹Uncheck items that already have `completed` class. <br />🔸None of the `todo-item` should have the `completed` class now.                                                                                                                 |
+    | Rename items  | 🔹Double click on any item`(".view")`. This should replace the inner elements with an input element`("[data-testid=text-input]")`. <br /> 🔹Clear the input element and type something new. <br />🔸Selected item should have the new name. |
+    | Delete items  | 🔹Hover on a item, so that the `destroy` button reveals itself. <br/> 🔹Click on the X button. <br /> 🔸Total count of `todo-items` should decrease by one.                                                                                 |
