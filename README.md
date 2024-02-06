@@ -17,13 +17,13 @@
         <td align="center"><b>Add items</b></td>
         <td>
           🔹Type some tasks in <code>text-input</code>.<br/>
-          🔸Each item should appear inside<code>todo-list</code>.
+          🔸Each item should appear inside <code>todo-list</code>.
         </td>
       </tr>
       <tr>
         <td align="center"><b>Rename items</b></td>
         <td>
-          🔹Double click on any item<code>(".view")</code>. This should replace the inner elements with an input element<code>("[data-testid=text-input]")</code>.<br/>
+          🔹Double click on any item <code>.view</code>. This should replace the inner elements with an input element <code>[data-testid=text-input]</code>.<br/>
           🔹Clear the input element and type something new.<br/>
           🔸Selected item should have the new name.
         </td>
@@ -161,14 +161,14 @@
         <td align="center"><b>Check all items<b/></td>
         <td>
           🔹Click on <code>toggle-all</code> button.<br/>
-          🔸<code>All items should be checked out.
+          🔸All items should be checked out.
         </td>
       </tr>
       <tr>
         <td align="center"><b>Unheck all items<b/></td>
         <td>
           🔹Click on <code>toggle-all</code> button again.<br/>
-          🔸<code>All items should be unchecked now.
+          🔸All items should be unchecked now.
         </td>
       </tr>
       <tr>
