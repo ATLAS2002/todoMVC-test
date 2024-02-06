@@ -12,15 +12,18 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
+// <reference types="./component.d.ts" />
 
 // Import commands.js using ES2015 syntax:
 import "./commands";
+import "react";
+import "todomvc-app-css/index.css";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 import { mount } from "cypress/react18";
 
-Cypress.Commands.add("mount", mount);
-
 // Example use:
 // cy.mount(<MyComponent />)
+
+Cypress.Commands.add("mount", mount);
