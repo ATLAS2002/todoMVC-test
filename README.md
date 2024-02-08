@@ -4,7 +4,7 @@
 
 ---
 
-- ### e2e tests:
+- ### E2E Tests:
 
   - ##### Core: _Check if each functionality of a TODO list app is working._
 
@@ -228,3 +228,66 @@
         </td>
       </tr>
     </table>
+
+---
+
+- ### Component Tests:
+
+  - ##### Component: `footer.jsx`
+  - ##### Tests Cases:
+
+    - should not render footer
+    - should render footer
+      ###### [child component - todo counter]
+      - should show 1 item left
+      - should show 0 or 1+ items left
+      ###### [child component - navigation buttons]
+      - `All` button should redirect to `/#`
+      - `Active` button should redirect to `/#/active`
+      - `Completed` button should redirect to `/#/completed`
+      ###### [child component - clear completed button]
+      - should be disabled
+      - should clear completed items on click
+
+  - ##### Component: `header.jsx`
+  - ##### Tests Cases:
+
+    - should render the header
+    - should render the input field
+    - input field should correctly handle adding items
+
+  - ##### Component: `input.jsx`
+  - ##### Tests Cases:
+
+    - should render and autofocus input field
+    - should show the label
+    - should take input with valid length
+    - should parse the sanitized text before showing
+
+  - ##### Component: `item.jsx`
+  - ##### Tests Cases:
+
+    - toggle button should work properly
+    - label should work properly
+    - input field should work properly
+    - destroy button should work properly
+
+  - ##### Component: `main.jsx`
+  - ##### Tests Cases:
+
+    - should show all items
+    - should show active items only
+    - should show completed items only
+    - should show toggle-all button when there are visible items
+    - should toggle all items when clicked on toggle-all button
+
+  - ##### Component: `reducer.js`
+  - ##### Tests Cases:
+    - `adding item` should work properly
+    - `updating item` should work properly
+    - `removing item` should work properly
+    - `toggling items` should work properly
+    - `removing all items` should work properly
+    - `toggling all items` should work properly
+    - `removing completed items` should work properly
+    - `error handling` should work properly

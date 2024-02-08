@@ -6,7 +6,7 @@ export default defineConfig({
       framework: "react",
       bundler: "vite",
     },
-    specPattern: "src/todo/components/tests/**/*.cy.{js,jsx,ts,tsx}",
+    specPattern: "src/todo/components/tests/**/*.spec.{js,jsx,ts,tsx}",
   },
 
   e2e: {

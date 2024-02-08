@@ -16,6 +16,12 @@ declare global {
        */
       mount: typeof mount;
     }
+    interface TypeOptions {
+      /**
+       * `.type()` method will not append _`enter`_ at the end, if value is true
+       */
+      unfinished: boolean;
+    }
   }
 }
 

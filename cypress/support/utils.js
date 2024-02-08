@@ -21,7 +21,7 @@ export const validateTodoCounter = (log = "") => {
 /**
  *
  * @param {string} fixture - path to fixture file
- * @param {function(string, number)} callback - callback function that is called with fixture data
+ * @param {function({id: number,title: string,completed: boolean}, number)} callback - callback function that is called with fixture data
  */
 export const useFixture = (fixture, callback) => {
   cy.fixture(fixture).then((data) => {
@@ -97,4 +97,21 @@ export const tapToggleAllButton = (check = null) => {
   if (check === null) cy.getTestId("toggle-all").click();
   else if (check) cy.getTestId("toggle-all").check();
   else cy.getTestId("toggle-all").uncheck();
+};
+
+/**
+ *
+ * @param {[number]} indexes
+ * @param {function({id: number,title: string,completed: boolean}): {id: number,title: string,completed: boolean}} mutate
+ * @param {function([{id: number,title: string,completed: boolean}])} use
+ */
+export const mutateTodos = (indexes, mutate, use) => {
+  const mutatedTodos = [];
+  cy.fixture("todos").then((todos) => {
+    indexes.forEach((index) => {
+      mutatedTodos[index] = { ...todos[index], ...mutate(todos[index]) };
+    });
+
+    use(Object.values({ ...todos, ...mutatedTodos }));
+  });
 };
