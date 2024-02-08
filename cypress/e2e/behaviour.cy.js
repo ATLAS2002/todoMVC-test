@@ -42,8 +42,8 @@ describe("Component behaviors", () => {
 
   context("After adding items", () => {
     beforeEach(() => {
-      useFixture("todos", (todo) => {
-        addTodo(todo);
+      useFixture("todos", ({ title }) => {
+        addTodo(title);
         cy.getTestId("todo-item").as("items");
       });
     });
@@ -82,9 +82,9 @@ describe("Component behaviors", () => {
         cy.getTestId("footer").as("footer");
         cy.getTestId("footer-navigation").as("footer-nav");
 
-        cy.get("@footer-nav").find("a[href='#/']").as("all-btn");
-        cy.get("@footer-nav").find("a[href='#/active']").as("active-btn");
-        cy.get("@footer-nav").find("a[href='#/completed']").as("completed-btn");
+        cy.get("@footer-nav").contains("a", "All").as("all-btn");
+        cy.get("@footer-nav").contains("a", "Active").as("active-btn");
+        cy.get("@footer-nav").contains("a", "Completed").as("completed-btn");
 
         cy.get("@footer").find(".clear-completed").as("clear-btn");
       });
@@ -125,6 +125,10 @@ describe("Component behaviors", () => {
       });
 
       it("Navigation buttons should work properly", () => {
+        cy.get("@all-btn").should("have.attr", "href", "#/");
+        cy.get("@active-btn").should("have.attr", "href", "#/active");
+        cy.get("@completed-btn").should("have.attr", "href", "#/completed");
+
         cy.get("@active-btn").click();
         cy.get("@list").should("not.be.empty");
 

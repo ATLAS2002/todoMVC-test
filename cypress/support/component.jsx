@@ -12,18 +12,21 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-// <reference types="./component.d.ts" />
 
 // Import commands.js using ES2015 syntax:
 import "./commands";
-import "react";
 import "todomvc-app-css/index.css";
+import "../../src/todo/app.css";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 import { mount } from "cypress/react18";
-
+import { MemoryRouter as Router } from "react-router-dom";
 // Example use:
 // cy.mount(<MyComponent />)
 
-Cypress.Commands.add("mount", mount);
+Cypress.Commands.add("mount", (component, options = {}) => {
+  const { routerProps = { initialEntries: ["/"] }, ...mountOptions } = options;
+
+  return mount(<Router {...routerProps}>{component}</Router>, mountOptions);
+});

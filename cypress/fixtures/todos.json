@@ -1,1 +1,22 @@
-["Eat", "Sleep", "Code", "Repeat"]
+[
+  {
+    "id": 0,
+    "title": "Eat",
+    "completed": false
+  },
+  {
+    "id": 1,
+    "title": "Sleep",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Code",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "title": "Repeat",
+    "completed": false
+  }
+]

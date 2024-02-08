@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="../support" />
 
-import { addTodo, renameTodo, useFixture } from "../support/utils";
+import { addTodo, renameTodo } from "../support/utils";
 
 describe("Validate actions", () => {
   beforeEach(() => {

@@ -13,19 +13,19 @@ describe("Core functionlities", () => {
   beforeEach(() => {
     cy.visit("/");
 
-    useFixture("todos", (todo) => {
-      addTodo(todo);
+    useFixture("todos", ({ title }) => {
+      addTodo(title);
     });
 
-    cy.getBySel("todo-list").as("list");
-    cy.getBySel("todo-item").as("items");
-    cy.getBySel("text-input").as("input");
+    cy.getTestId("todo-list").as("list");
+    cy.getTestId("todo-item").as("items");
+    cy.getTestId("text-input").as("input");
   });
 
   it("Add items to list", () => {
     cy.log("Adding tasks to list...");
-    useFixture("todos", (todo) => {
-      cy.get("@list").contains(todo);
+    useFixture("todos", ({ title }) => {
+      cy.get("@list").contains(title);
     });
   });
 
@@ -58,7 +58,7 @@ describe("Core functionlities", () => {
       cy.log("Checking out tasks...");
 
       useFixture("todos", (_, id) => {
-        cy.getBySel("todo-item").eq(id).should("have.class", "completed");
+        cy.getTestId("todo-item").eq(id).should("have.class", "completed");
       });
     });
 
@@ -69,7 +69,7 @@ describe("Core functionlities", () => {
       });
 
       useFixture("todos", (_, id) => {
-        cy.getBySel("todo-item").eq(id).should("not.have.class", "completed");
+        cy.getTestId("todo-item").eq(id).should("not.have.class", "completed");
       });
     });
   });
